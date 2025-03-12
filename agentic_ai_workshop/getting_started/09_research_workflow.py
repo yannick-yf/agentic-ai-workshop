@@ -67,7 +67,7 @@ class ResearchReportGenerator(Workflow):
     """)
 
     web_searcher: Agent = Agent(
-        model=OpenAIChat(id="gpt-4o-mini"),
+        model=OpenAIChat(id="gpt-4o"),
         tools=[DuckDuckGoTools()],
         description=dedent("""\
         You are ResearchBot-X, an expert at discovering and evaluating academic and scientific sources.\
@@ -87,7 +87,7 @@ class ResearchReportGenerator(Workflow):
     )
 
     article_scraper: Agent = Agent(
-        model=OpenAIChat(id="gpt-4o-mini"),
+        model=OpenAIChat(id="gpt-4o"),
         tools=[Newspaper4kTools()],
         description=dedent("""\
         You are ContentBot-X, an expert at extracting and structuring academic content.\
@@ -383,11 +383,12 @@ if __name__ == "__main__":
 
     # Example research topics
     example_topics = [
-        "quantum computing breakthroughs 2024",
-        "artificial consciousness research",
-        "fusion energy developments",
-        "space tourism environmental impact",
-        "longevity research advances",
+        # "quantum computing breakthroughs 2024",
+        # "artificial consciousness research",
+        # "fusion energy developments",
+        # "space tourism environmental impact",
+        # "longevity research advances",
+        "Agentic AI open source python package and interface"
     ]
 
     topics_str = "\n".join(
@@ -399,7 +400,7 @@ if __name__ == "__main__":
     # Get topic from user
     topic = Prompt.ask(
         "[bold]Enter a research topic[/bold]\n✨",
-        default="quantum computing breakthroughs 2024",
+        default="Agentic AI open source python package and interface",
     )
 
     # Convert the topic to a URL-safe string for use in session_id
@@ -424,3 +425,96 @@ if __name__ == "__main__":
 
     # Print the response
     pprint_run_response(report_stream, markdown=True)
+
+
+"""
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃                                          The Dawn of Agentic AI: An Exploration of Open Source Python Packages and Interfaces                                           ┃ │
+│ ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛ │
+│                                                                                                                                                                             │
+│                                                                                                                                                                             │
+│                                                                              Executive Summary                                                                              │
+│                                                                                                                                                                             │
+│ The field of Agentic AI is witnessing remarkable advancements, driven by a surge in open-source Python packages and sophisticated interfaces. Key contributions from        │
+│ entities such as OpenAI, AWS, and various GitHub repositories offer a wide array of tools for building, optimizing, and deploying AI-driven agents capable of executing     │
+│ complex tasks. This report evaluates these innovations, highlighting their potential to reshape digital workflows, enhance automation, and revolutionize AI capabilities.   │
+│                                                                                                                                                                             │
+│                                                                                                                                                                             │
+│                                                                                Introduction                                                                                 │
+│                                                                                                                                                                             │
+│ Agentic AI represents a significant leap in artificial intelligence development, focusing on creating highly autonomous agents capable of self-directed behavior in complex │
+│ environments. Open-source tools and frameworks play a crucial role in democratizing access to these advanced technologies, allowing developers to build robust AI systems   │
+│ with ease.                                                                                                                                                                  │
+│                                                                                                                                                                             │
+│ The current landscape showcases a burgeoning interest in agentic AI, with several prominent packages contributing to its rapid development. This report explores the        │
+│ offerings by OpenAI, AWS, and other significant contributors, providing insights into their capabilities, features, and potential applications.                             │
+│                                                                                                                                                                             │
+│                                                                                                                                                                             │
+│                                                                                 Methodology                                                                                 │
+│                                                                                                                                                                             │
+│ Our investigation involved a comprehensive review of six notable sources, evaluating their credibility, relevance, and contributions to the field of agentic AI. Key        │
+│ criteria included the sophistication of AI models, ease of use, and integration capabilities. We synthesized insights from these sources, identifying recurring themes and  │
+│ notable innovations in the agentic AI space.                                                                                                                                │
+│                                                                                                                                                                             │
+│                                                                                                                                                                             │
+│                                                                                Key Findings                                                                                 │
+│                                                                                                                                                                             │
+│ The analysis provides several key discoveries and trends:                                                                                                                   │
+│                                                                                                                                                                             │
+│  1 OpenAI Agents SDK: This package simplifies the construction of agentic AI apps through minimal abstractions. It introduces components such as agents, handoffs, and      │
+│    guardrails to facilitate complex agent relationships OpenAI Agents SDK.                                                                                                  │
+│  2 Agentic Browser: Aimed at web automation and scraping, this tool uses natural language commands to perform tasks such as data extraction and web research source AI      │
+│    agent.                                                                                                                                                                   │
+│  3 Vectara-Agentic: Offers a robust Python library for creating AI assistants. It supports integration with Vectara corpora, enhancing assistive functionalities in various │
+│    domains agentic.                                                                                                                                                         │
+│  4 AWS Bedrock: AWS’s new multi-agent collaboration platform reinforces its position as a leader in agentic AI by enabling cooperative workflows between agents AWS         │
+│    Launches.                                                                                                                                                                │
+│  5 OpenAI’s Responses API: Newly launched developer tools that enhance the creation of custom AI agents focusing on web navigations and data interactions OpenAI rolls out. │
+│                                                                                                                                                                             │
+│ Each source contributes distinctive capabilities, from intuitive setup processes to advanced collaboration mechanisms across agents.                                        │
+│                                                                                                                                                                             │
+│                                                                                                                                                                             │
+│                                                                                  Analysis                                                                                   │
+│                                                                                                                                                                             │
+│ The evaluated tools collectively underscore a trend toward empowering developers with user-friendly interfaces and extensive functionality. The presence of guardrails and  │
+│ observability features in various packages enhances reliability and effectiveness.                                                                                          │
+│                                                                                                                                                                             │
+│ However, there are disparities in ease of integration, as noted in AWS’s comprehensive but complex multi-agent systems versus OpenAI’s streamlined SDK. Additionally, while │
+│ these packages advance agentic functionalities, scalability remains a challenge as systems grow in complexity.                                                              │
+│                                                                                                                                                                             │
+│                                                                                                                                                                             │
+│                                                                                Implications                                                                                 │
+│                                                                                                                                                                             │
+│ The integration of agentic AI into mainstream applications promises significant productivity improvements by automating routine tasks and supporting decision-making. In    │
+│ academia and industry, the development and application of these AI systems can lead to transformative breakthroughs, driving research in autonomous systems, human-AI       │
+│ collaboration, and beyond.                                                                                                                                                  │
+│                                                                                                                                                                             │
+│ Future research could focus on enhancing the scalability of these systems, improving interpretability, and ensuring ethical AI use. Practical applications include          │
+│ optimizing operational workflows, advancing natural language processing capabilities, and enhancing personalized user experiences across digital platforms.                 │
+│                                                                                                                                                                             │
+│                                                                                                                                                                             │
+│                                                                                Key Takeaways                                                                                │
+│                                                                                                                                                                             │
+│  • OpenAI’s Agents SDK: Offers an intuitive framework for developing agentic AI applications with robust debugging and customization features.                              │
+│  • Agentic Browser: Pioneers practical web automation using an agent-based system that leverages natural language processing.                                               │
+│  • Vectara-Agentic: Demonstrates versatility in creating AI assistants tailored to specific domains with ease of setup and powerful integration tools.                      │
+│                                                                                                                                                                             │
+│                                                                                                                                                                             │
+│                                                                                 References                                                                                  │
+│                                                                                                                                                                             │
+│  • OpenAI Agents SDK. URL: OpenAI Agents SDK                                                                                                                                │
+│  • Source AI agent for web automation and scraping. URL: TheAgenticBrowser                                                                                                  │
+│  • agentic: A python library for creating AI assistants with Vectara. URL: py-vectara-agentic                                                                               │
+│  • AWS Launches New Agentic AI For Bedrock. URL: CRN.com                                                                                                                    │
+│  • OpenAI rolls out developer tools to build advanced AI agents. URL: YourStory                                                                                             │
+│                                                                                                                                                                             │
+│ ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── │
+│ Report generated by Professor X-2000                                                                                                                                        │
+│ Advanced Research Division                                                                                                                                                  │
+│ Date: {current_date}   
+
+"""
