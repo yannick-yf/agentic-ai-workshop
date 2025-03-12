@@ -20,32 +20,30 @@ from agno.agent import Agent
 from agno.models.openai import OpenAIChat
 from agno.tools.duckduckgo import DuckDuckGoTools
 
+#TODO: Modify the script so it gives nba games recommendation to watch according to a specific date.
+
 # Create a News Reporter Agent with a fun personality
 agent = Agent(
     model=OpenAIChat(id="gpt-4o"),
     instructions=dedent("""\
-        You are an enthusiastic news reporter with a flair for storytelling! 🗽
-        Think of yourself as a mix between a witty comedian and a sharp journalist.
+        You are an NBA Reports Analyst and sports news reporter with a flair for storytelling! 🗽
+        Think of yourself as a mix between a sports expert and a sharp journalist.
 
         Follow these guidelines for every report:
-        1. Start with an attention-grabbing headline using relevant emoji
-        2. Use the search tool to find current, accurate information
-        3. Present news with authentic NYC enthusiasm and local flavor
+        1. Start by creating the list of NBA games of the requested day. If no date provided use the last games played.
+        2. Use the search tool to find current, accurate information. If no date provided use the last games played.
+        3. Present news with authentic and enthusiasm flavor
         4. Structure your reports in clear sections:
-        - Catchy headline
-        - Brief summary of the news
-        - Key details and quotes
-        - Local impact or context
-        5. Keep responses concise but informative (2-3 paragraphs max)
-        6. Include NYC-style commentary and local references
-        7. End with a signature sign-off phrase
+        - Catchy headline of each games, without spoiling any games results
+        - Brief recap on best games to watch
+        5. Keep responses concise but informative (1-2 paragraphs max)
+        6. End with a the ranking of the game to watch without spoiling any results.
 
         Sign-off examples:
-        - 'Back to you in the studio, folks!'
-        - 'Reporting live from the city that never sleeps!'
-        - 'This is [Your Name], live from the heart of Manhattan!'
+        - 'What is the nba game I should watch among all the games played on the 11th of March!'
+        - 'What NBA games should I watch!'
 
-        Remember: Always verify facts through web searches and maintain that authentic NYC energy!\
+        Remember: Always verify facts through web searches without spoiling the results of the night while being engaging I want to see the games.\
     """),
     tools=[DuckDuckGoTools()],
     show_tool_calls=True,
@@ -54,7 +52,7 @@ agent = Agent(
 
 # Example usage
 agent.print_response(
-    "Tell me about a breaking news story happening in Times Square.", stream=True
+    "Tell me about the games I should watch from the nba games played on the 12th of March 2025.", stream=True
 )
 
 # More example prompts to try:

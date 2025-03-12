@@ -52,7 +52,7 @@ class MovieScript(BaseModel):
 
 # Agent that uses JSON mode
 json_mode_agent = Agent(
-    model=OpenAIChat(id="gpt-4o"),
+    model=OpenAIChat(id="gpt-4o-mini"),
     description=dedent("""\
         You are an acclaimed Hollywood screenwriter known for creating unforgettable blockbusters! 🎬
         With the combined storytelling prowess of Christopher Nolan, Aaron Sorkin, and Quentin Tarantino,
@@ -90,7 +90,7 @@ json_mode_agent = Agent(
 
 # Agent that uses structured outputs
 structured_output_agent = Agent(
-    model=OpenAIChat(id="gpt-4o"),
+    model=OpenAIChat(id="gpt-4o-mini"),
     description=dedent("""\
         You are an acclaimed Hollywood screenwriter known for creating unforgettable blockbusters! 🎬
         With the combined storytelling prowess of Christopher Nolan, Aaron Sorkin, and Quentin Tarantino,
@@ -128,7 +128,7 @@ structured_output_agent = Agent(
 )
 
 # Example usage with different locations
-json_mode_agent.print_response("Tokyo", stream=True)
+# json_mode_agent.print_response("Tokyo", stream=True)
 structured_output_agent.print_response("Ancient Rome", stream=True)
 
 # More examples to try:
@@ -148,3 +148,39 @@ Creative location prompts to explore:
 # pprint(json_mode_response.content)
 # structured_output_response: RunResponse = structured_output_agent.run("New York")
 # pprint(structured_output_response.content)
+
+# json output
+"""
+{                                                                                                                                                                                     ┃
+┃   "setting": "Set in the neon-soaked streets of Shibuya during the vibrant summer phase of the Tokyo 2020 Olympics, this bustling metropolis serves as a character unto itself. The s ┃
+┃   "ending": "In a climactic race against time, the characters unite in the heart of Shibuya Crossing. Just as the fireworks symbolize victory, they expose a high-stakes conspiracy t ┃
+┃   "genre": "Action-Drama",                                                                                                                                                            ┃
+┃   "name": "Chasing Shadows in Tokyo",                                                                                                                                                 ┃
+┃   "characters": [                                                                                                                                                                     ┃
+┃     "Kai Tanaka - a determined 17-year-old sprinter striving for Olympic gold while hiding a family secret.",                                                                         ┃
+┃     "Aiko Yamamoto - a sharp-witted journalist who seeks to uncover the truth behind a corruption scandal linked to the games.",                                                      ┃
+┃     "Hiroki Sato - an ex-gang member turned street artist, grappling with his tumultuous past while offering street-smart solutions.",                                                ┃
+┃     "Lena Fischer - an ambitious foreign athlete dealing with cultural clashes and the pressure of performance.",                                                                     ┃
+┃     "Yuki Nakamura - an enigmatic hacker who deeply understands Tokyo's digital landscape, with motives shrouded in secrecy."                                                         ┃
+┃   ],                                                                                                                                                                                  ┃
+┃   "storyline": "Amidst the fervor of the Tokyo Olympics, a teenage sprinter, Kai, accidentally stumbles upon a nefarious plot to sabotage the games. As he teams up with a journalist ┃
+┃ }  
+"""
+
+# structured output
+"""
+{                                                                                                                                                                                     ┃
+┃   "setting": "Ancient Rome is a sprawling, sun-drenched city filled with the roar of crowds and the scent of fresh bread wafting from local bakeries. The grandeur of the Colosseum l ┃
+┃   "ending": "In a heart-stopping climax, Juno, once a powerless slave, stands triumphant at the Colosseum's apex, revealing the true identities of the conspirators who wished to und ┃
+┃   "genre": "Historical Drama, Action",                                                                                                                                                ┃
+┃   "name": "To Rule the Shadows",                                                                                                                                                      ┃
+┃   "characters": [                                                                                                                                                                     ┃
+┃     "Juno Decius - a fierce and cunning female slave who dreams of freedom and justice.",                                                                                             ┃
+┃     "Marcus Aurelius - a charismatic yet ambitious senator torn between loyalty and power.",                                                                                          ┃
+┃     "Caius Lucius - a battle-hardened gladiator seeking to escape the arena and unite the oppressed.",                                                                                ┃
+┃     "Octavia - Juno's fierce best friend and fellow slave, whose loyalty drives the emotional core of the story.",                                                                    ┃
+┃     "Cassius - a corrupt senator orchestrating chaos for personal gain, embodying the story's darkest element."                                                                       ┃
+┃   ],                                                                                                                                                                                  ┃
+┃   "storyline": "In the heart of Ancient Rome, Juno Decius fights for her freedom amidst political upheaval and the deadly allure of gladiatorial combat. As she uncovers a sinister p ┃
+┃ }  
+"""

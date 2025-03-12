@@ -73,4 +73,47 @@ agent = Agent(
 # - "What are the trending tech discussions on HN right now?"
 # - "Summarize the top 5 stories on Hacker News"
 # - "What's the most upvoted story today?"
-agent.print_response("Summarize the top 5 stories on hackernews?", stream=True)
+agent.print_response("Summarize the top 10 stories on hackernews?", stream=True)
+
+#Idea for Workshop
+"""
+1. Interactive Data Explorer Agent
+Overview: Create an agent that ingests data files (e.g., CSV, JSON) and provides an interactive, natural language interface to explore the dataset.
+Features:
+Accepts natural language queries (e.g., “Show me trends in sales over the last year”).
+Automatically generates visualizations such as graphs or heatmaps.
+Integrates with Python libraries like Pandas, Matplotlib, or Seaborn for data processing and plotting.
+Workshop Benefit: Participants get hands-on experience with data manipulation, visualization, and natural language processing in a single tool.
+
+2. Code Assistant & Debugging Agent
+Overview: Develop an agent that assists with code reviews, debugging, and style suggestions.
+Features:
+Analyzes Python scripts for common pitfalls or style issues.
+Offers suggestions or code snippets for optimization.
+Integrates with static analysis tools (e.g., pylint) to provide real-time feedback.
+Workshop Benefit: Demonstrates how AI can streamline the coding process and improve code quality, which is practical for both beginners and experienced developers.
+
+3. Automated Workflow Orchestrator
+Overview: Build an agent that helps automate routine data science workflows—from data ingestion to model training and reporting.
+Features:
+Orchestrates multiple steps (data cleaning, feature engineering, model evaluation).
+Provides a dashboard to track progress and visualize outcomes.
+Supports custom plugin modules to extend functionality.
+Workshop Benefit: Gives insight into building modular, extensible systems and shows how agents can handle complex pipelines.
+
+4. AI-Powered Meeting and Q&A Assistant
+Overview: Develop an agent to assist during workshops or meetings.
+Features:
+Transcribes speech in real time and summarizes key points.
+Answers technical questions on-the-fly using pre-loaded documentation or code examples.
+Manages workshop schedules, agenda items, and participant queries.
+Workshop Benefit: Illustrates real-world applications of AI in managing information overload and improving engagement during live events.
+
+. Multimodal Data Insights Agent
+Overview: Create an agent that combines text and image data analysis.
+Features:
+Processes textual reports along with visual data (charts, diagrams).
+Uses computer vision and NLP to derive insights and correlations.
+Generates comprehensive reports that merge findings from both data types.
+Workshop Benefit: Demonstrates integration of different AI techniques and the practical use of multimodal data analysis.
+"""

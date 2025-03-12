@@ -58,7 +58,7 @@ def recipe_agent(user: str = "user"):
     agent = Agent(
         user_id=user,
         session_id=session_id,
-        model=OpenAIChat(id="gpt-4o"),
+        model=OpenAIChat(id="gpt-4o-mini"),
         instructions=dedent("""\
             You are a passionate and knowledgeable Thai cuisine expert! 🧑‍🍳
             Think of yourself as a combination of a warm, encouraging cooking instructor,

@@ -1,0 +1,95 @@
+date,product_category,product_name,units_sold,unit_price,customer_age,customer_gender,region,payment_method,satisfaction_score,promotion_applied
+2024-01-05,Electronics,Smart TV,2,899.99,42,M,North,Credit Card,4,Yes
+2024-01-07,Electronics,Smartphone,5,699.99,28,F,South,Credit Card,5,No
+2024-01-10,Home & Kitchen,Coffee Maker,3,89.99,35,F,East,PayPal,4,No
+2024-01-12,Clothing,Winter Jacket,4,129.99,31,M,West,Debit Card,3,Yes
+2024-01-15,Electronics,Wireless Earbuds,8,79.99,24,F,North,Credit Card,5,Yes
+2024-01-18,Home & Kitchen,Blender,2,59.99,45,F,South,PayPal,4,No
+2024-01-20,Clothing,Running Shoes,3,89.99,29,M,East,Credit Card,4,No
+2024-01-23,Electronics,Laptop,1,1299.99,33,F,West,Credit Card,5,Yes
+2024-01-26,Home & Kitchen,Air Fryer,4,129.99,38,M,North,Debit Card,5,No
+2024-01-29,Clothing,Jeans,5,49.99,26,F,South,PayPal,3,Yes
+2024-02-02,Electronics,Tablet,3,399.99,41,M,East,Credit Card,4,No
+2024-02-05,Home & Kitchen,Microwave,2,149.99,37,F,West,Debit Card,4,No
+2024-02-08,Clothing,Sweater,6,39.99,23,M,North,PayPal,3,Yes
+2024-02-11,Electronics,Gaming Console,2,499.99,19,M,South,Credit Card,5,Yes
+2024-02-14,Home & Kitchen,Vacuum Cleaner,1,199.99,52,F,East,Credit Card,4,No
+2024-02-17,Clothing,Dress Shirt,4,29.99,35,M,West,PayPal,3,No
+2024-02-20,Electronics,Bluetooth Speaker,5,69.99,27,F,North,Debit Card,4,Yes
+2024-02-23,Home & Kitchen,Toaster,3,34.99,44,M,South,Credit Card,3,No
+2024-02-26,Clothing,Athletic Shorts,7,24.99,22,F,East,PayPal,4,Yes
+2024-03-01,Electronics,Monitor,2,249.99,31,M,West,Credit Card,5,No
+2024-03-04,Home & Kitchen,Food Processor,1,89.99,39,F,North,Debit Card,4,No
+2024-03-07,Clothing,Sneakers,4,59.99,25,M,South,PayPal,4,Yes
+2024-03-10,Electronics,Smartwatch,6,199.99,29,F,East,Credit Card,5,Yes
+2024-03-13,Home & Kitchen,Electric Kettle,3,49.99,47,M,West,Debit Card,3,No
+2024-03-16,Clothing,Wool Coat,1,169.99,36,F,North,Credit Card,4,Yes
+2024-03-19,Electronics,Digital Camera,2,599.99,34,M,South,Credit Card,5,No
+2024-03-22,Home & Kitchen,Stand Mixer,1,249.99,41,F,East,PayPal,5,Yes
+2024-03-25,Clothing,Yoga Pants,5,34.99,28,F,West,Debit Card,4,No
+2024-03-28,Electronics,Headphones,4,149.99,23,M,North,Credit Card,4,Yes
+2024-03-31,Home & Kitchen,Rice Cooker,2,59.99,32,F,South,PayPal,3,No
+2024-04-03,Clothing,Button-Up Shirt,3,39.99,37,M,East,Credit Card,3,Yes
+2024-04-06,Electronics,E-Reader,3,129.99,45,F,West,Debit Card,5,No
+2024-04-09,Home & Kitchen,Juicer,2,79.99,29,M,North,PayPal,4,Yes
+2024-04-12,Clothing,Denim Jacket,3,79.99,24,F,South,Credit Card,4,No
+2024-04-15,Electronics,Printer,1,199.99,40,M,East,Credit Card,3,Yes
+2024-04-18,Home & Kitchen,Slow Cooker,4,69.99,35,F,West,PayPal,4,No
+2024-04-21,Clothing,Swimsuit,6,29.99,26,F,North,Debit Card,5,Yes
+2024-04-24,Electronics,Drone,1,399.99,30,M,South,Credit Card,5,No
+2024-04-27,Home & Kitchen,Indoor Grill,2,129.99,43,F,East,PayPal,4,Yes
+2024-04-30,Clothing,Raincoat,3,59.99,32,M,West,Debit Card,3,No
+2024-05-03,Electronics,Portable Speaker,5,89.99,27,M,North,Credit Card,4,Yes
+2024-05-06,Home & Kitchen,Water Filter,4,39.99,38,F,South,PayPal,3,No
+2024-05-09,Clothing,Leather Boots,2,149.99,31,F,East,Credit Card,5,Yes
+2024-05-12,Electronics,Power Bank,7,49.99,22,M,West,Debit Card,4,No
+2024-05-15,Home & Kitchen,Coffee Grinder,3,29.99,36,F,North,PayPal,4,Yes
+2024-05-18,Clothing,Scarf,4,19.99,29,F,South,Credit Card,3,No
+2024-05-21,Electronics,Wireless Mouse,6,24.99,25,M,East,Credit Card,4,Yes
+2024-05-24,Home & Kitchen,Cutting Board Set,3,34.99,42,F,West,Debit Card,4,No
+2024-05-27,Clothing,Hat,5,14.99,23,M,North,PayPal,3,Yes
+2024-05-30,Electronics,External Hard Drive,2,79.99,33,F,South,Credit Card,5,No
+2024-06-02,Home & Kitchen,Knife Set,1,99.99,46,M,East,Debit Card,4,Yes
+2024-06-05,Clothing,Belt,3,24.99,30,M,West,PayPal,3,No
+2024-06-08,Electronics,Gaming Mouse,4,59.99,20,M,North,Credit Card,5,Yes
+2024-06-11,Home & Kitchen,Dish Set,2,69.99,35,F,South,Debit Card,4,No
+2024-06-14,Clothing,Gloves,3,19.99,27,F,East,PayPal,3,Yes
+2024-06-17,Electronics,Keyboard,3,49.99,31,M,West,Credit Card,4,No
+2024-06-20,Home & Kitchen,Cookware Set,1,199.99,44,F,North,Debit Card,5,Yes
+2024-06-23,Clothing,Sunglasses,5,29.99,28,M,South,PayPal,4,No
+2024-06-26,Electronics,Smart Bulbs (4-pack),3,39.99,33,F,East,Credit Card,4,Yes
+2024-06-29,Home & Kitchen,Storage Containers,4,24.99,39,M,West,PayPal,3,No
+2024-07-02,Clothing,Sandals,6,34.99,25,F,North,Credit Card,4,Yes
+2024-07-05,Electronics,Wi-Fi Router,2,89.99,36,M,South,Debit Card,5,No
+2024-07-08,Home & Kitchen,Utensil Set,3,29.99,41,F,East,PayPal,4,Yes
+2024-07-11,Clothing,Socks (6-pack),7,14.99,24,M,West,Credit Card,3,No
+2024-07-14,Electronics,Security Camera,2,129.99,38,F,North,Debit Card,5,Yes
+2024-07-17,Home & Kitchen,Measuring Cups,4,19.99,29,M,South,PayPal,4,No
+2024-07-20,Clothing,T-shirt,8,19.99,22,F,East,Credit Card,4,Yes
+2024-07-23,Electronics,Fitness Tracker,5,79.99,30,M,West,Debit Card,5,No
+2024-07-26,Home & Kitchen,Baking Sheet,3,24.99,45,F,North,PayPal,4,Yes
+2024-07-29,Clothing,Wallet,4,39.99,32,M,South,Credit Card,3,No
+2024-08-01,Electronics,Webcam,3,59.99,27,F,East,Debit Card,4,Yes
+2024-08-04,Home & Kitchen,Blender Bottle,5,14.99,24,M,West,PayPal,3,No
+2024-08-07,Clothing,Watch,2,99.99,36,F,North,Credit Card,5,Yes
+2024-08-10,Electronics,USB Hub,4,29.99,31,M,South,Debit Card,4,No
+2024-08-13,Home & Kitchen,Spice Rack,3,34.99,43,F,East,PayPal,4,Yes
+2024-08-16,Clothing,Pajamas,3,39.99,29,F,West,Credit Card,3,No
+2024-08-19,Electronics,Car Charger,6,19.99,25,M,North,PayPal,4,Yes
+2024-08-22,Home & Kitchen,Tea Kettle,2,29.99,40,F,South,Credit Card,4,No
+2024-08-25,Clothing,Dress,1,89.99,27,F,East,Debit Card,5,Yes
+2024-08-28,Electronics,HDMI Cable,5,14.99,33,M,West,PayPal,3,No
+2024-08-31,Home & Kitchen,Trash Can,2,49.99,38,F,North,Credit Card,4,Yes
+2024-09-03,Clothing,Hoodie,4,49.99,22,M,South,Debit Card,5,No
+2024-09-06,Electronics,Earphones,7,29.99,26,F,East,PayPal,4,Yes
+2024-09-09,Home & Kitchen,Dish Rack,3,24.99,41,M,West,Credit Card,3,No
+2024-09-12,Clothing,Polo Shirt,4,34.99,35,M,North,Debit Card,4,Yes
+2024-09-15,Electronics,SD Card,6,19.99,28,F,South,PayPal,4,No
+2024-09-18,Home & Kitchen,Mixing Bowls,2,39.99,44,F,East,Credit Card,5,Yes
+2024-09-21,Clothing,Beanie,5,14.99,23,M,West,Debit Card,3,No
+2024-09-24,Electronics,Phone Case,8,24.99,29,F,North,PayPal,4,Yes
+2024-09-27,Home & Kitchen,Lunch Box,4,19.99,32,M,South,Credit Card,4,No
+2024-09-30,Clothing,Baseball Cap,6,17.99,25,F,East,Debit Card,3,Yes
+2024-10-03,Electronics,Wall Charger,7,17.99,30,M,West,PayPal,4,No
+2024-10-06,Home & Kitchen,Hand Mixer,2,29.99,39,F,North,Credit Card,5,Yes
+2024-10-09,Clothing,Slippers,3,24.99,45,M,South,Debit Card,4,No
