@@ -23,7 +23,7 @@ agno= "1.1.8"
 matplotlib = "3.10.1"
 seaborn = "0.13.2"
 PyGithub ="2.6.1"
-ipykernel="*"
+ipykernel="6.29.5"
 
 [build-system]
 requires = ["poetry-core"]

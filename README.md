@@ -9,6 +9,17 @@ Apprendre à concevoir, développer et exécuter un agent IA en utilisant OpenAI
 - Activités pratiques
 - Questions-réponses
 
+## Matériel requis :
+- Ordinateurs portables avec Python 3.8+ installé.
+- Accès à Internet stable.
+- IDE (recommandé : VS Code).
+- Clé API OpenAI active (les participants doivent en créer une à l'avance si possible).
+- Python 3.11
+- Bibliothèques Python installées : Voir le fichier Requirements.txt
+- Accés au github repo préparés pour les démonstrations et l'activité pratique.
+
+Note Importante : Cet atelier constitue une base solide pour la création d'agents IA. Les participants sont encouragés à explorer les ressources fournies et à continuer à expérimenter pour développer des agents plus sophistiqués et adaptés à leurs besoins spécifiques. 
+
 ---
 
 ## 1er heure – Introduction et Bases des Agents IA (60 min)
