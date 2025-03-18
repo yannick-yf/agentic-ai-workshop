@@ -14,13 +14,27 @@ Apprendre à concevoir, développer et exécuter un agent IA en utilisant OpenAI
 ## 1er heure – Introduction et Bases des Agents IA (60 min)
 
 ### 1.1 Comprendre les Agents IA (20 min)
+
+https://www.anthropic.com/engineering/building-effective-agents
+
 #### Qu'est-ce qu'un Agent IA ? (Définition et concepts clés)
+
+La définition d'un "agent" est complexe et peut varier selon les sources. Nois pouvons concevoir les agents comme des systèmes entièrement autonomes qui opèrent indépendamment sur de longues périodes, utilisant divers outils pour accomplir des tâches complexes. Nous pouvons également les définir dans le cadre d'implémentations plus prescriptives suivant des flux de travail prédéfinis.
+Dans le cadre de ce workshop nous categorisoerons toutes les versions sous le terme **agentic systems**. 
+
+Il est important d'etablir une distinction architecturale importante entre les workflows et les agents:
+
+Les **workflows** sont des systèmes où les LLMs et les outils sont orchestrés à travers des chemins de code prédéfinis. L'exécution des actions et l'utilisation des outils sont déterminées par une logique programmée en amont.
+
+Les **agents**, en revanche, sont des systèmes où les LLMs dirigent dynamiquement leurs propres processus et l'utilisation des outils, conservant le contrôle sur la manière dont ils accomplissent les tâches. L'agent prend des décisions en temps réel sur les outils à utiliser et la séquence des actions en fonction du contexte et de son raisonnement.
 
 Un **Agent IA** est une entité qui perçoit son environnement, raisonne et agit pour atteindre des objectifs. Ils sont conçus pour être capables de penser, d'agir et d'utiliser des fonctionnalités externes et d'accéder à des données en temps réel de manière automatisée et autonome.
 
 La relation entre les Agents IA et les **grands modèles de langage (LLMs)** est symbiotique, le LLM agissant souvent comme le cerveau de l'agent. Les Agents IA augmentent les capacités des LLMs en leur permettant d'interagir avec le monde extérieur et de dépasser les limites de leurs données d'entraînement. Par exemple, un LLM seul ne peut pas accéder à des informations en temps réel sur l'état d'une commande, mais un Agent IA peut utiliser des outils pour le faire.
 
-#### _Composants fondamentaux d'un Agent IA_
+l'idée fondamentale est celle d'un système intelligent capable d'agir de manière autonome pour résoudre des problèmes, en utilisant potentiellement des outils et en se basant sur un LLM pour la prise de décision dynamique (dans le cas des "agents" selon la distinction d'Anthropic) ou en suivant des étapes prédéfinies (dans le cas des "workflows" selon Anthropic).
+
+#### Composants fondamentaux d'un Agent IA
 
 Selon les sources, les composants clés d'un Agent IA incluent :
 
@@ -92,7 +106,7 @@ En résumé, **Agno** est un framework puissant et flexible pour développer des
 ### 2.1 Configuration de l’environnement (15 min)
 - Installation des dépendances :
   ```bash
-  pip install openai agno phidata
+  pip install openai agno
   ```
 - Gestion des clés API avec variables d’environnement
 - Exécution d’un premier test simple avec OpenAI SDK
