@@ -22,6 +22,8 @@ sqlalchemy = "2.0.38"
 agno= "1.1.8"
 matplotlib = "3.10.1"
 seaborn = "0.13.2"
+PyGithub ="2.6.1"
+ipykernel="*"
 
 [build-system]
 requires = ["poetry-core"]
