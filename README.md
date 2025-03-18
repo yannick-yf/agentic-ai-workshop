@@ -1,7 +1,5 @@
 # Atelier (3h) : Créez votre premier agent IA avec OpenAI et Agno
 
-## Langue : Anglais
-
 ## Objectif
 Apprendre à concevoir, développer et exécuter un agent IA en utilisant OpenAI SDK et Agno/Phidata.
 
@@ -15,16 +13,16 @@ Apprendre à concevoir, développer et exécuter un agent IA en utilisant OpenAI
 
 ## Plan détaillé
 
-### 1ᵉʼerre heure – Introduction et Bases des Agents IA (60 min)
+### 1er heure – Introduction et Bases des Agents IA (60 min)
 
 #### 1.1 Comprendre les Agents IA (20 min)
-##### Qu'est-ce qu'un Agent IA ? (Définition et concepts clés)
+##### __Qu'est-ce qu'un Agent IA ? (Définition et concepts clés)__
 
 Un **Agent IA** est une entité qui perçoit son environnement, raisonne et agit pour atteindre des objectifs. Ils sont conçus pour être capables de penser, d'agir et d'utiliser des fonctionnalités externes et d'accéder à des données en temps réel de manière automatisée et autonome.
 
 La relation entre les Agents IA et les **grands modèles de langage (LLMs)** est symbiotique, le LLM agissant souvent comme le cerveau de l'agent. Les Agents IA augmentent les capacités des LLMs en leur permettant d'interagir avec le monde extérieur et de dépasser les limites de leurs données d'entraînement. Par exemple, un LLM seul ne peut pas accéder à des informations en temps réel sur l'état d'une commande, mais un Agent IA peut utiliser des outils pour le faire.
 
-##### Composants fondamentaux d'un Agent IA
+##### _Composants fondamentaux d'un Agent IA_
 
 Selon les sources, les composants clés d'un Agent IA incluent :
 
@@ -91,7 +89,7 @@ En résumé, **Agno** est un framework puissant et flexible pour développer des
 
 ---
 
-### 2ᵉʼerre heure – Développement Pratique d’un Agent IA (60 min)
+### 2eme heure – Développement Pratique d’un Agent IA (60 min)
 
 #### 2.1 Configuration de l’environnement (15 min)
 - Installation des dépendances :
@@ -113,7 +111,7 @@ En résumé, **Agno** est un framework puissant et flexible pour développer des
 
 ---
 
-### 3ᵉʼerre heure – Amélioration, Scalabilité et Déploiement (60 min)
+### 3eme heure – Amélioration, Scalabilité et Déploiement (60 min)
 
 #### 3.1 Optimisation et Cas d’Utilisation Avancés (20 min)
 - Ajout de mémoire pour la gestion du contexte
