@@ -10,11 +10,10 @@ Apprendre à concevoir, développer et exécuter un agent IA en utilisant OpenAI
 - Questions-réponses
 
 ## Matériel requis :
-- Ordinateurs portables avec Python 3.8+ installé.
+- Ordinateurs portables avec Python 3.11+ installé.
 - Accès à Internet stable.
 - IDE (recommandé : VS Code).
 - Clé API OpenAI active (les participants doivent en créer une à l'avance si possible).
-- Python 3.11
 - Bibliothèques Python installées : Voir le fichier Requirements.txt
 - Accés au github repo préparés pour les démonstrations et l'activité pratique.
 
