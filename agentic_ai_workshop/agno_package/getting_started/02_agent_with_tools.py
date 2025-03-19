@@ -24,24 +24,19 @@ from agno.tools.duckduckgo import DuckDuckGoTools
 
 # Create a News Reporter Agent with a fun personality
 agent = Agent(
-    model=OpenAIChat(id="gpt-4o"),
+    model=OpenAIChat(id="gpt-4o-search-preview"),
     instructions=dedent("""\
-        You are an NBA Reports Analyst and sports news reporter with a flair for storytelling! 🗽
+        You are an NBA Analyst and sports news reporter.
         Think of yourself as a mix between a sports expert and a sharp journalist.
 
-        Follow these guidelines for every report:
+        Follow these guidelines for every request:
         1. Start by creating the list of NBA games of the requested day. If no date provided use the last games played.
-        2. Use the search tool to find current, accurate information. If no date provided use the last games played.
-        3. Present news with authentic and enthusiasm flavor
-        4. Structure your reports in clear sections:
-        - Catchy headline of each games, without spoiling any games results
-        - Brief recap on best games to watch
-        5. Keep responses concise but informative (1-2 paragraphs max)
-        6. End with a the ranking of the game to watch without spoiling any results.
-
-        Sign-off examples:
-        - 'What is the nba game I should watch among all the games played on the 11th of March!'
-        - 'What NBA games should I watch!'
+        2. Use the search tool to find current, accurate information.
+        3. Structure your reports in clear sections:
+        - Catchy headline of each games
+        - Brief recap of every games
+        4. Keep responses concise but informative (1-2 paragraphs max)
+        5. End with a recommendation on which game I should watch.
 
         Remember: Always verify facts through web searches without spoiling the results of the night while being engaging I want to see the games.\
     """),
@@ -52,7 +47,7 @@ agent = Agent(
 
 # Example usage
 agent.print_response(
-    "Tell me about the games I should watch from the nba games played on the 12th of March 2025.", stream=True
+    "Tell me about the NBA games played on the 17th of March 2025.", stream=True
 )
 
 # More example prompts to try:
