@@ -74,8 +74,5 @@ agent = Agent(
     markdown=True,
 )
 
-# Example questions to try:
-# - "What are the trending tech discussions on HN right now?"
-# - "Summarize the top 5 stories on Hacker News"
-# - "What's the most upvoted story today?"
+# Important function tool should return string
 agent.print_response("What is the weather like in Paris today?", stream=True)
