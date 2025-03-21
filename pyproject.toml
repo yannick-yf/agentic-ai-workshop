@@ -27,6 +27,7 @@ PyGithub ="2.6.1"
 ipykernel="6.29.5"
 gradio = "*"
 geopy = "*"
+boto3 = "*"
 
 [build-system]
 requires = ["poetry-core"]

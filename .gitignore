@@ -170,3 +170,4 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 *tmp
+*agentic_ai_workshop/bedrock/
