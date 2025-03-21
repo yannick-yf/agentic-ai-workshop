@@ -1,5 +1,5 @@
 """
-
+Go to OpenAI urls and populate the VectorDataBase
 
 """
 
