@@ -75,4 +75,6 @@ agent = Agent(
 )
 
 # Important function tool should return string
-agent.print_response("What is the weather like in Paris today?", stream=True)
+#agent.print_response("What is the weather like in Paris today?", stream=True)
+response = agent.run("What is the weather like in Paris today?", stream_intermediate_steps=False)
+print(str(response.content))

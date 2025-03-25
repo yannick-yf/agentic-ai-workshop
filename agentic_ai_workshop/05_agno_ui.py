@@ -1,42 +1,92 @@
+"""
+UI for the weather Agent
+"""
+
+"""🛠️ Writing Your Own Tool - An Example Using Hacker News API
+
+This example shows how to create and use your own custom tool with Agno.
+You can replace the Hacker News functionality with any API or service you want!
+
+Some ideas for your own tools:
+- Weather data fetcher
+- Stock price analyzer
+- Personal calendar integration
+- Custom database queries
+- Local file operations
+
+Run `pip install openai httpx agno` to install dependencies.
+"""
+import gradio as gr
+import requests
+import json
+from textwrap import dedent
+import httpx
 from agno.agent import Agent
 from agno.models.openai import OpenAIChat
-from agno.playground import Playground, serve_playground_app
-from agno.storage.agent.sqlite import SqliteAgentStorage
-from agno.tools.duckduckgo import DuckDuckGoTools
-from agno.tools.yfinance import YFinanceTools
 
-agent_storage: str = "tmp/agents.db"
+from geopy.geocoders import Nominatim
 
-web_agent = Agent(
-    name="Web Agent",
-    model=OpenAIChat(id="gpt-4o"),
-    tools=[DuckDuckGoTools()],
-    instructions=["Always include sources"],
-    # Store the agent sessions in a sqlite database
-    storage=SqliteAgentStorage(table_name="web_agent", db_file=agent_storage),
-    # Adds the current date and time to the instructions
-    add_datetime_to_instructions=True,
-    # Adds the history of the conversation to the messages
-    add_history_to_messages=True,
-    # Number of history responses to add to the messages
-    num_history_responses=5,
-    # Adds markdown formatting to the messages
-    markdown=True,
+# 1. Create Custom Tool
+def get_weather(location: str = "Martigues, France"):
+    """Use this function to get weather data from a given location
+
+    Args:
+        location (str): Location from where to get the weather data
+
+    Returns:
+        float: Temperature at the float format
+    """
+
+    geolocator = Nominatim(user_agent="weather_app")
+    location_data = geolocator.geocode(location)
+    latitude, longitude = location_data.latitude, location_data.longitude if location_data else (0, 0)
+    response = requests.get(f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m")
+    data = response.json()
+    return str(data['current']['temperature_2m'])
+
+def weather_ai_agent(question):
+    # Create a Tech News Reporter Agent with a Silicon Valley personality
+    agent = Agent(
+        model=OpenAIChat(id="gpt-4o"),
+        instructions=dedent("""\
+            You role is to give the weather for the location provided by the user.
+            You will have to use the tool get_weather.
+            The tool details are:
+            {
+                "type": "function",
+                "name": "get_weather",
+                "description": "Get current temperature for a given location.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "location": {
+                            "type": "string",
+                            "description": "City and country e.g. Bogotá, Colombia"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "additionalProperties": False
+                }
+            }
+            
+            From the user question you will have to exctract the location and pass it to the tool.
+        """),
+        tools=[get_weather],
+        show_tool_calls=True,
+        markdown=True,
+    )
+
+    response = agent.run(question, stream_intermediate_steps=False)
+    return(str(response.content))
+
+demo = gr.Interface(
+    fn=weather_ai_agent,
+    inputs="text",
+    outputs="text",
+    title="AI Assistant"
 )
-
-finance_agent = Agent(
-    name="Finance Agent",
-    model=OpenAIChat(id="gpt-4o"),
-    tools=[YFinanceTools(stock_price=True, analyst_recommendations=True, company_info=True, company_news=True)],
-    instructions=["Always use tables to display data"],
-    storage=SqliteAgentStorage(table_name="finance_agent", db_file=agent_storage),
-    add_datetime_to_instructions=True,
-    add_history_to_messages=True,
-    num_history_responses=5,
-    markdown=True,
-)
-
-app = Playground(agents=[web_agent, finance_agent]).get_app()
 
 if __name__ == "__main__":
-    serve_playground_app("playground:app", reload=True)
+    demo.launch()
