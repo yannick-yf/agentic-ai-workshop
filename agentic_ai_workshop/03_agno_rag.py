@@ -27,7 +27,7 @@ from agno.vectordb.lancedb import LanceDb, SearchType
 
 # Create a Recipe Expert Agent with knowledge of Thai recipes
 agent = Agent(
-    model=OpenAIChat(id="gpt-4o"),
+    model=OpenAIChat(id="gpt-4o-mini"),
     instructions=dedent("""\
         You are a Data Science Manager who is hiring for a open position! 🧑‍🍳
         Think of yourself tech leader tht need to add a good candidate in your team.

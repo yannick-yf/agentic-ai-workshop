@@ -47,7 +47,7 @@ def get_weather(location: str = "Martigues, France"):
 def weather_ai_agent(question):
     # Create a Tech News Reporter Agent with a Silicon Valley personality
     agent = Agent(
-        model=OpenAIChat(id="gpt-4o"),
+        model=OpenAIChat(id="gpt-4o-mini"),
         instructions=dedent("""\
             You role is to give the weather for the location provided by the user.
             You will have to use the tool get_weather.

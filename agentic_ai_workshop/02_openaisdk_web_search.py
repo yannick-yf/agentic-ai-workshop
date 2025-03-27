@@ -2,7 +2,7 @@ from openai import OpenAI
 client = OpenAI()
 
 completion = client.chat.completions.create(
-    model="gpt-4o-search-preview",
+    model="gpt-4o-mini-search-preview",
     web_search_options={},
     messages=[
         {
