@@ -171,3 +171,7 @@ cython_debug/
 .pypirc
 *tmp
 *agentic_ai_workshop/bedrock/
+*agentic_ai_workshop/agno_package/*
+*agentic_ai_workshop/openai_agent_sdk_api/*
+*.DS_Store
+.DS_Store
