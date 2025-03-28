@@ -48,7 +48,7 @@ client = OpenAI()
 def weather_ai_agent(question):
     input_messages = [{"role": "user", "content": question}]
     response = client.responses.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         input=input_messages,
         tools=tools
     )
@@ -65,7 +65,7 @@ def weather_ai_agent(question):
     })
 
     response_2 = client.responses.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         input=input_messages,
         tools=tools,
     )

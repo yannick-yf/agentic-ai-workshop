@@ -8,7 +8,7 @@ from rich import print
 client = OpenAI()
 
 response = client.responses.create(
-    model="gpt-4o",
+    model="gpt-4o-mini",
     input="Tell me about the Yannick Flores Experience",
     tools=[{
         "type": "file_search",

@@ -7,6 +7,7 @@ from manager import FinancialResearchManager
 # Run this as `python -m examples.financial_bot.main` and enter a
 # financial research query, for example:
 # "Write up an analysis of Apple Inc.'s most recent quarter."
+# "Write up an analysis of Nike most recent quarter."
 async def main() -> None:
     query = input("Enter a financial research query: ")
     mgr = FinancialResearchManager()

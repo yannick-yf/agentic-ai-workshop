@@ -4,7 +4,7 @@ from agno.models.openai.like import OpenAILike
 
 agent = Agent(
     model=OpenAILike(
-        id="gpt-4o-search-preview",
+        id="gpt-4o-mini-search-preview",
         api_key=getenv("OPENAI_API_KEY")
     )
 )

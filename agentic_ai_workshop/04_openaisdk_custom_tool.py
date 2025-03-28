@@ -38,7 +38,7 @@ tools = [{
 # 3. Ask Question to the model
 input_messages = [{"role": "user", "content": "What is the weather like in Martigues, France today?"}]
 response = client.responses.create(
-    model="gpt-4o",
+    model="gpt-4o-mini",
     input=input_messages,
     tools=tools
 )
@@ -59,7 +59,7 @@ input_messages.append({
 })
 # 6. Ask the model again with original question and the response from the tool
 response_2 = client.responses.create(
-    model="gpt-4o",
+    model="gpt-4o-mini",
     input=input_messages,
     tools=tools,
 )
