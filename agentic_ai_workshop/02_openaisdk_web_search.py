@@ -7,7 +7,7 @@ completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "Give me the nba games results for the game of the 19th of March.",
+            "content": "Tell me about Yannick Flores experience",
         }
     ],
 )
