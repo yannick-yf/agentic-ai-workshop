@@ -1,298 +1,269 @@
-# Atelier (3h) : Créez votre premier agent IA avec OpenAI et Agno
+# Workshop (3h): Build Your First AI Agent with OpenAI and Agno
 
-## Objectif
-Apprendre à concevoir, développer et exécuter un agent IA en utilisant OpenAI SDK et Agno/Phidata.
+## Objective
+Learn how to design, develop, and run an AI agent using OpenAI SDK and Agno/Phidata.
 
 ## Format
-- Présentation rapide
-- Démonstrations en direct
-- Activités pratiques
-- Questions-réponses
+- Brief presentation  
+- Live demonstrations  
+- Hands-on activities  
+- Q&A session  
 
-## Matériel requis :
-- Ordinateurs portables avec Python 3.11+ installé.
-- Accès à Internet stable.
-- IDE (recommandé : VS Code).
-- Clé API OpenAI active (les participants doivent en créer une à l'avance si possible).
-- Bibliothèques Python installées : Voir le fichier Requirements.txt
-- Accés au github repo préparés pour les démonstrations et l'activité pratique.
+## Required Materials:
+- Laptops with Python 3.11+ installed  
+- Stable internet access  
+- IDE (recommended: VS Code)  
+- Active OpenAI API key (participants should create one in advance if possible)  
+- Installed Python libraries: See the Requirements.txt file  
+- Access to the GitHub repository prepared for demos and practical exercises  
 
-Note Importante : Cet atelier constitue une base solide pour la création d'agents IA. Les participants sont encouragés à explorer les ressources fournies et à continuer à expérimenter pour développer des agents plus sophistiqués et adaptés à leurs besoins spécifiques. 
+Important Note: This workshop provides a strong foundation for building AI agents. Participants are encouraged to explore the provided resources and continue experimenting to develop more advanced agents tailored to their specific needs.
 
 ---
 
-## Introduction et Bases des Agents IA
+## Introduction and Foundations of AI Agents
 
-### 1.0 Définition des concepts: LLM, Token, RAG etc
+### 1.0 Defining Key Concepts: LLM, Token, RAG, etc.
 
-#### Concepts Fondamentaux des LLMs et des Agents IA pour votre Workshop
+#### Core Concepts of LLMs and AI Agents for Your Workshop
 
 ##### Large Language Models (LLMs)
 
-Un **Large Language Model (LLM)** est une IA spécialisée dans la compréhension et la génération de langage naturel grâce à des réseaux de neurones profonds. Ces modèles, qualifiés de "larges", sont entraînés sur d'immenses corpus de données et possèdent un grand nombre de **paramètres** (ex. GPT-3 avec 175 milliards), leur permettant d'apprendre et de générer du texte de manière cohérente.
+A **Large Language Model (LLM)** is an AI system specialized in understanding and generating natural language through deep neural networks. These "large" models are trained on massive data corpora and have a large number of **parameters** (e.g., GPT-3 with 175 billion), enabling them to coherently generate text.
 
-Les LLMs sont des **modèles de fondation**, pré-entraînés sur des données non étiquetées en auto-supervision, ce qui leur permet d'identifier des motifs et d'effectuer diverses tâches de traitement du langage naturel. Leur architecture repose principalement sur des **réseaux de neurones Transformers**, qui analysent le contexte des mots dans une séquence pour mieux en comprendre le sens.
+LLMs are **foundation models**, pre-trained on unlabeled data using self-supervised learning, allowing them to recognize patterns and perform various NLP tasks. They are built primarily on **Transformer neural network architectures**, which analyze word context within a sequence to better understand meaning.
 
-L'**entraînement** d'un LLM consiste à prédire le mot suivant dans une phrase, en ajustant progressivement ses paramètres pour améliorer ses prédictions. Une fois pré-entraîné, le modèle peut être **affiné (fine-tuning)** sur un corpus spécifique pour se spécialiser dans une tâche particulière.
+The **training** of an LLM involves predicting the next word in a sentence, gradually adjusting its parameters to improve predictions. Once pre-trained, the model can be **fine-tuned** on a specific dataset to specialize in a given task.
 
-###### Architecture et fonctionnement
+###### Architecture and Functioning
 
-Les LLMs sont composés de multiples couches de réseaux neuronaux comprenant des couches récurrentes, des couches feedforward, des couches d'embedding et des couches d'attention qui travaillent ensemble pour traiter le texte d'entrée et générer des réponses cohérentes. Cette architecture complexe leur permet de produire du texte et d'interpréter le langage avec une finesse qui imite la fluidité humaine.
+LLMs consist of multiple neural network layers, including recurrent layers, feedforward layers, embedding layers, and attention layers that work together to process input text and generate coherent responses. This complex architecture allows them to produce text and interpret language with a fluency that mimics human speech.
 
-##### Modèles de Fondation
+##### Foundation Models
 
-Un modèle de fondation est un modèle d'intelligence artificielle de grande taille, entraîné sur une quantité massive de données non étiquetées, généralement par apprentissage auto-supervisé. Ces modèles peuvent être adaptés à un large éventail de tâches en aval sans nécessiter une reprogrammation complète.
+A foundation model is a large-scale AI model trained on massive amounts of unlabeled data, typically using self-supervised learning. These models can be adapted for a wide variety of downstream tasks without needing a complete rewrite.
 
-Les modèles de fondation représentent un paradigme pour la construction de systèmes d'IA, dans lequel un modèle pré-entraîné sur une grande quantité de données non étiquetées peut être adapté à de nombreuses applications. Les premiers modèles de fondation étaient de grands modèles de langage basés sur l'architecture des "Transformeurs", notamment BERT et GPT-3.
+Foundation models represent a paradigm shift in AI development—pre-trained on diverse data, they can be adapted to numerous applications. Early examples include large language models based on transformer architecture, like BERT and GPT-3.
 
-###### Évolution et caractéristiques
+###### Evolution and Characteristics
 
-Les modèles de fondation sont caractérisés par deux aspects clés : l'apprentissage par transfert et la capacité à générer des connaissances de référence qui peuvent être modifiées pour des tâches spécifiques. Ce terme a été popularisé par le centre de recherche sur les modèles de fondation (CRFM) du Stanford Institute for Human-Centered Artificial Intelligence (HAI).
+Foundation models are characterized by two key features: transfer learning and the ability to generate base knowledge that can be tailored for specific tasks. The term was popularized by Stanford’s Center for Research on Foundation Models (CRFM), part of the Human-Centered Artificial Intelligence (HAI) institute.
 
 ##### Tokens
 
-Les tokens sont les unités fondamentales de traitement du texte dans les LLMs. Un token peut représenter un mot complet, une partie de mot, un caractère, ou un symbole de ponctuation, selon le système de tokenisation utilisé par le modèle. La tokenisation est le processus qui consiste à découper le texte en ces unités plus petites que le modèle peut traiter.
+Tokens are the fundamental text units processed by LLMs. A token can represent a full word, a word fragment, a character, or a punctuation symbol, depending on the model’s tokenizer. Tokenization breaks down the text into smaller units the model can understand.
 
-Les LLMs ont généralement une limite de contexte exprimée en nombre de tokens (par exemple, 2048, 4096 ou 8192 tokens). Cette limite détermine la quantité de texte que le modèle peut traiter en une seule fois, influençant sa capacité à maintenir la cohérence sur de longs passages.
+LLMs usually have a context window defined in number of tokens (e.g., 2048, 4096, or 8192 tokens). This limit determines how much text the model can process at once, affecting its ability to remain coherent over long passages.
 
 ##### Retrieval Augmented Generation (RAG)
 
-Le RAG (Retrieval Augmented Generation) est une technique qui améliore les capacités des LLMs en les augmentant avec des connaissances externes, comme des bases de données ou des documents. Cette approche fonctionne en récupérant un ensemble de documents pertinents à partir d'une source externe, puis en concaténant ces documents avec l'invite originale avant de les envoyer au générateur de texte.
+RAG (Retrieval Augmented Generation) is a technique that enhances LLMs by augmenting them with external knowledge, such as databases or documents. This method works by retrieving relevant documents from an external source and concatenating them with the original prompt before sending it to the language model.
 
-Cette méthode permet aux LLMs d'accéder aux informations les plus récentes sans nécessiter un réentraînement du modèle, ce qui est particulièrement utile puisque la connaissance paramétrique des LLMs est statique. Le RAG aide également à réduire les problèmes d'hallucination (génération de fausses informations) et améliore les performances dans des environnements en évolution rapide.
+This enables the LLM to access up-to-date information without needing retraining, which is particularly useful since the parametric knowledge in LLMs is static. RAG also helps reduce hallucinations (generating incorrect info) and improves performance in rapidly evolving environments.
 
 ##### Embeddings
 
-Les embeddings textuels, également appelés word embeddings, sont des représentations numériques de données textuelles où chaque mot est représenté sous forme d'un vecteur de nombres réels. Ces représentations vectorielles permettent aux algorithmes d'apprentissage automatique de comprendre et de traiter efficacement le langage humain.
+Textual embeddings, also called word embeddings, are numerical representations of textual data where each word is represented as a real-valued vector. These vectorized representations help machine learning algorithms understand and efficiently process human language.
 
-Il existe deux techniques principales pour créer des embeddings textuels :
+There are two main techniques for creating embeddings:
+1. Frequency-based embeddings, which use word frequency to build vectors  
+2. Prediction-based embeddings, which capture semantic relationships and context, providing rich conceptual representations
 
-1. Les embeddings basés sur la fréquence, qui utilisent la fréquence des mots pour créer leurs représentations vectorielles.
-2. Les embeddings basés sur la prédiction, qui capturent les relations sémantiques et les informations contextuelles, fournissant des représentations riches des concepts et des relations sémantiques.
-
-Les embeddings ont permis aux modèles de langage comme les réseaux neuronaux récurrents (RNNs), BERT et GPT d'évoluer rapidement. Ils sont fondamentaux pour des applications telles que la classification de texte, la recherche d'informations et la détection de similarité sémantique.
-
+Embeddings enabled the rapid evolution of language models like RNNs, BERT, and GPT. They are fundamental for applications like text classification, information retrieval, and semantic similarity detection.
 
 ##### Prompt
 
-Un **prompt** est une instruction textuelle ou vocale transmise à une IA générative pour déclencher la génération de contenu spécifique. Cette commande constitue le point de départ que le modèle analyse pour produire des réponses cohérentes. 
+A **prompt** is a textual or vocal instruction given to a generative AI to trigger specific content generation. It serves as the initial input that the model analyzes to produce coherent responses.
 
-###### Caractéristiques clés :
-- **Format flexible** : Texte (ex. ChatGPT), voix (ex. Siri/Alexa)
-- **Fonction duale** : Déclencheur d'action + guide contextuel pour orienter la réponse
-- **Applications types** :
-  - Génération de contenu créatif (poèmes, scénarios)
-  - Résolution de problèmes techniques (codage, débogage)
-  - Analyse de données complexes (médicales, financières)
+###### Key Features:
+- **Flexible format**: Text (e.g., ChatGPT), voice (e.g., Siri/Alexa)  
+- **Dual role**: Action trigger + contextual guide  
+- **Common applications**:
+  - Creative content generation (poems, scripts)
+  - Technical problem-solving (coding, debugging)
+  - Complex data analysis (medical, financial)
 
-**Exemple de structure** :  
-"Écris un article de blog sur l'impact du RAG dans les LLMs en adoptant un ton pédagogique, avec 3 études de cas concrètes et des statistiques récentes."
+**Example structure**:  
+"Write a blog post about the impact of RAG on LLMs in an educational tone, with 3 concrete case studies and recent statistics."
 
 ###### Prompt Engineering
 
-Le **prompt engineering** est une technique visant à optimiser la formulation des prompts pour maximiser la pertinence des sorties IA. Cette pratique combine compétences linguistiques et connaissances techniques des modèles.
+**Prompt engineering** is the practice of optimizing prompt formulations to maximize the relevance of AI outputs. It blends linguistic skills with technical model understanding.
 
-###### Méthodologies clés :
-|| Technique | Objectif | Exemple |
+###### Key Techniques:
+|| Technique | Goal | Example |
 |---|---|---|---|
-| **Précision contextuelle** | Ajout de balises sémantiques | Améliorer la compréhension du contexte | "[En tant que data scientist senior] Explique les embeddings..." |
-| **Contraintes structurelles** | Définition de formats de sortie | Standardiser les réponses | "Génère un tableau comparatif avec colonnes X/Y/Z" |
-| **Optimisation itérative** | Raffinement progressif | Affiner les résultats par cycles | Version 1 → Analyse → Version 2 |
+| **Context precision** | Add semantic tags | Improve contextual understanding | "[As a senior data scientist] Explain embeddings..." |
+| **Structural constraints** | Define output formats | Standardize responses | "Generate a comparison table with columns X/Y/Z" |
+| **Iterative optimization** | Refinement cycles | Fine-tune outputs | Version 1 → Review → Version 2 |
 
-###### Applications avancées :
-- **Adaptation cross-modèle** : Techniques spécifiques pour GPT-4 (meilleur en synthèse) vs Bard (accès web temps réel)
-- **Réduction des hallucinations** : Mécanismes de vérification intégrés ("Vérifie les faits avant de répondre")
-- **Automatisation industrielle** : Intégration dans les pipelines MLOps pour le préprocessing de données
+###### Advanced Applications:
+- **Cross-model adaptation**: Tailoring prompts for GPT-4 (better at synthesis) vs Bard (real-time web access)
+- **Hallucination reduction**: Built-in fact-checking ("Verify facts before answering")
+- **Industrial automation**: Integrated into MLOps pipelines for data preprocessing
 
-### 1.1 Comprendre les Agents IA
+### 1.1 Understanding AI Agents
 
 https://www.anthropic.com/engineering/building-effective-agents
 
-#### Qu'est-ce qu'un Agent IA ? (Définition et concepts clés)
+#### What is an AI Agent? (Definition and Key Concepts)
 
-La définition d'un "agent" est complexe et peut varier selon les sources. Nous pouvons concevoir les agents comme des systèmes entièrement autonomes qui opèrent indépendamment sur de longues périodes, utilisant divers outils pour accomplir des tâches complexes. Nous pouvons également les définir dans le cadre d'implémentations plus prescriptives suivant des flux de travail prédéfinis.
-Dans le cadre de ce workshop nous categorisoerons toutes les versions sous le terme **agentic systems**. 
+The definition of an “agent” is complex and varies across sources. We can define agents as fully autonomous systems operating independently over long periods, using various tools to perform complex tasks. Alternatively, we can consider more prescriptive implementations following predefined workflows.
 
-Il est important d'etablir une distinction architecturale importante entre les workflows et les agents:
+For this workshop, we will group all versions under the term **agentic systems**.
 
-Les **workflows** sont des systèmes où les LLMs et les outils sont orchestrés à travers des chemins de code prédéfinis. L'exécution des actions et l'utilisation des outils sont déterminées par une logique programmée en amont.
+It's important to distinguish between **workflows** and **agents** architecturally:
 
-Les **agents**, en revanche, sont des systèmes où les LLMs dirigent dynamiquement leurs propres processus et l'utilisation des outils, conservant le contrôle sur la manière dont ils accomplissent les tâches. L'agent prend des décisions en temps réel sur les outils à utiliser et la séquence des actions en fonction du contexte et de son raisonnement.
+- **Workflows** are systems where LLMs and tools are orchestrated along predefined code paths. Actions and tool usage are hardcoded in advance.
+- **Agents**, on the other hand, dynamically control their process and tool usage, deciding in real-time based on reasoning and context.
 
-Un **Agent IA** est une entité qui perçoit son environnement, raisonne et agit pour atteindre des objectifs. Ils sont conçus pour être capables de penser, d'agir et d'utiliser des fonctionnalités externes et d'accéder à des données en temps réel de manière automatisée et autonome.
+An **AI Agent** is an entity that perceives its environment, reasons, and acts to achieve goals. It is designed to think, act, and use external tools or data autonomously and in real-time.
 
-La relation entre les Agents IA et les **grands modèles de langage (LLMs)** est symbiotique, le LLM agissant souvent comme le cerveau de l'agent. Les Agents IA augmentent les capacités des LLMs en leur permettant d'interagir avec le monde extérieur et de dépasser les limites de leurs données d'entraînement. Par exemple, un LLM seul ne peut pas accéder à des informations en temps réel sur l'état d'une commande, mais un Agent IA peut utiliser des outils pour le faire.
+The relationship between AI Agents and **LLMs** is symbiotic: the LLM often acts as the agent’s brain. AI agents extend LLM capabilities by allowing them to interact with the outside world, overcoming the limits of static training data. For example, an LLM alone cannot check a live order status, but an agent can.
 
-l'idée fondamentale est celle d'un système intelligent capable d'agir de manière autonome pour résoudre des problèmes, en utilisant potentiellement des outils et en se basant sur un LLM pour la prise de décision dynamique (dans le cas des "agents" selon la distinction d'Anthropic) ou en suivant des étapes prédéfinies (dans le cas des "workflows" selon Anthropic).
+The core idea is that of an intelligent system capable of solving problems autonomously, using tools and relying on an LLM for dynamic decision-making (per Anthropic’s “agent” definition) or following predefined steps (per their “workflow” definition).
 
-#### Composants fondamentaux d'un Agent IA
+#### Core Components of an AI Agent
 
-Selon les sources, les composants clés d'un Agent IA incluent :
+According to various sources, key components of an AI agent include:
 
-- **Agent Core** : Le moteur de décision, souvent basé sur un LLM, qui interprète les entrées et décide des actions. Il utilise des prompts, comme le *ReAct Prompt*, pour déterminer ses pensées et ses actions.
-- **Mémoire** : La capacité de l'agent à conserver et à utiliser des informations des interactions passées. Ceci est essentiel pour le suivi des conversations et la construction de workflows.
-- **Outils (Actions)** : Des fonctions externes ou des API que l'agent peut invoquer pour interagir avec le monde réel ou accéder à des données. Exemples : recherche web, accès à des bases de données, calculatrices.
-- **Module de Planification (si applicable)** : Pour les agents plus complexes, la capacité à décomposer des tâches en étapes et à les exécuter séquentiellement.
-- **Système de Prompt** : Un ensemble d'instructions fondamentales qui définissent le comportement, le ton et l'approche décisionnelle de l'agent.
+- **Agent Core**: The decision engine, usually LLM-based, that interprets inputs and decides on actions. Uses prompts like *ReAct Prompt* to manage thoughts and actions.
+- **Memory**: The agent’s ability to retain and use past interaction data. Crucial for conversation history and workflow building.
+- **Tools (Actions)**: External functions or APIs the agent can use to interact with the real world or access data. Examples: web search, database queries, calculators.
+- **Planning Module (if applicable)**: For more complex agents, the ability to break down tasks into steps and execute them sequentially.
+- **Prompt System**: A set of core instructions that define the agent’s behavior, tone, and decision-making approach.
 
-#### Pourquoi utiliser des agents IA ?
+#### Why Use AI Agents?
 
-Les Agents IA offrent de nombreux avantages et peuvent être utilisés dans divers contextes :
+AI agents offer many benefits across different contexts:
 
-- **Automatisation Avancée des Tâches** : Automatisation de flux de travail complexes, allant au-delà des simples scripts.
-- **Amélioration de la Productivité** : Délégation de tâches répétitives ou nécessitant de la recherche pour libérer du temps.
-- **Accès et Traitement de Données en Temps Réel** : Interrogation de données à jour pour prise de décision informée.
-- **Support Client Intelligent** : Réponse aux questions fréquentes, suivi des commandes, consultation de bases de connaissances.
-- **Automatisation de Flux de Travail Métier** : Analyse de documents, génération de rapports, initiation d'actions basées sur des événements.
-- **Analyse de Données et Recherche** : Interrogation de bases de données, recherches web, synthèse d'informations.
-- **Création d'Assistants Personnels Avancés** : Planification de rendez-vous, gestion d'informations personnelles.
-- **Systèmes Multi-Agents** : Collaboration entre agents spécialisés pour résoudre des problèmes complexes.
+- **Advanced Task Automation**: Automating complex workflows beyond simple scripts  
+- **Productivity Boost**: Delegating repetitive or research-heavy tasks  
+- **Real-Time Data Access & Processing**: Querying up-to-date data for informed decision-making  
+- **Smart Customer Support**: FAQs, order tracking, knowledge base interactions  
+- **Business Workflow Automation**: Document analysis, report generation, event-based triggers  
+- **Data Analysis & Research**: Querying databases, web search, summarizing information  
+- **Advanced Personal Assistants**: Scheduling, managing personal information  
+- **Multi-Agent Systems**: Collaboration between specialized agents to solve complex problems  
 
-### 1.2 Introduction aux Outils : OpenAI SDK et Agno
+### 1.2 Tool Introduction: OpenAI SDK and Agno
 
-#### Qu'est-ce qu'OpenAI SDK ?
+#### What is OpenAI SDK?
 
-L'**OpenAI SDK** est une bibliothèque Python permettant aux développeurs d'interagir avec les API d'OpenAI.
+The **OpenAI SDK** is a Python library that allows developers to interact with OpenAI APIs.
 
-Avec l'OpenAI SDK, vous pouvez :
+With the OpenAI SDK, you can:
 
-- Configurer votre clé d'API pour authentifier vos requêtes.
-- Utiliser `openai.chat.completions.create()` pour envoyer des prompts aux modèles et obtenir des réponses.
-- Définir des *prompts système* pour orienter le comportement des modèles.
-- Passer des *prompts utilisateur* pour poser des questions ou donner des instructions.
-- Analyser les réponses de l'API pour extraire le contenu généré.
-- Utiliser des outils définis selon le format d'OpenAI pour exécuter des fonctions externes.
+- Configure your API key for authentication  
+- Use `openai.chat.completions.create()` to send prompts to models and receive responses  
+- Define *system prompts* to guide model behavior  
+- Send *user prompts* to ask questions or give instructions  
+- Parse API responses to extract generated content  
+- Define and use external tools in the OpenAI function-calling format  
 
-#### Qu'est-ce qu'Agno ?
+#### What is Agno?
 
-**Agno** (anciennement *Phidata*) est un framework Python open-source conçu pour construire des Agents IA multimodaux avec mémoire, connaissances et outils. Il est simple, rapide et indépendant du modèle (*model-agnostic*).
+**Agno** (formerly *Phidata*) is an open-source Python framework for building multimodal AI agents with memory, knowledge, and tools. It’s fast, simple, and model-agnostic.
 
-Agno permet de créer des agents qui peuvent travailler avec du texte, des images, de l'audio et de la vidéo. Il facilite la construction d'équipes d'agents spécialisés (*multi-agents*) et offre des fonctionnalités pour la gestion de la mémoire, l'utilisation de bases de connaissances (*vector databases* pour la RAG), et la production de sorties structurées.
+Agno supports building agents that can work with text, images, audio, and video. It simplifies multi-agent orchestration and provides built-in support for memory, vector knowledge bases (*RAG*), and structured output generation.
 
-#### Pourquoi utiliser Agno ?
+#### Why Use Agno?
 
-- **Simplicité et Rapidité** : Création rapide d'agents avec seulement trois lignes de code.
-- **Indépendance du Modèle** : Compatible avec plusieurs fournisseurs de modèles (ex. OpenAI, Mistral, Anthropic).
-- **Capacités Multimodales** : Support natif pour texte, images, audio et vidéo.
-- **Support Multi-Agents** : Facilite la collaboration entre agents spécialisés.
-- **Fonctionnalités Avancées** : Mémoire intégrée, gestion des connaissances (*RAG*), sorties structurées.
-- **Approche IA comme Ingénierie Logicielle** : Utilisation de constructions Python standards (*if, else, while, for*).
-- **Facilité d'Intégration avec des Outils** : Recherche web, finance, bases de données.
-- **Interface Utilisateur (UI)** : Agno propose une UI graphique pour interagir avec les agents.
+- **Fast and Simple**: Create agents in just three lines of code  
+- **Model-Agnostic**: Compatible with OpenAI, Mistral, Anthropic, etc.  
+- **Multimodal Support**: Native handling of text, images, audio, video  
+- **Multi-Agent Support**: Enables collaboration between agents  
+- **Advanced Features**: Built-in memory, knowledge management (RAG), structured outputs  
+- **Code-as-AI**: Uses standard Python constructs (*if, else, while, for*)  
+- **Easy Tool Integration**: Web search, finance, databases, etc.  
+- **User Interface (UI)**: Agno provides a GUI to interact with agents  
 
-En résumé, **Agno** est un framework puissant et flexible pour développer des Agents IA intelligents et adaptatifs.
+In short, **Agno** is a powerful and flexible framework to develop intelligent and adaptive AI agents.
 
-### 1.3 Définition de votre Agent IA
-- **Atelier interactif** : Définir un cas d’usage simple
-  - Objectif de l’agent
-  - Entrées et sorties attendues
-  - Actions/outils nécessaires
-- Exemples : chatbot de support, analyseur de texte, recherche web
-
-
----
-
-## 2eme heure – Développement Pratique d’un Agent IA
-
-### 2.1 Configuration de l’environnement
-- Installation des dépendances
-- Gestion des clés API avec variables d’environnement
-- Exécution d’un premier test simple avec OpenAI SDK
-
-### 2.2 Interaction avec OpenAI en Python
-- Création d’un premier agent conversationnel simple
-- Structuration des prompts et rôle du system message
-
-### 2.3 Ajout d’outils à l’Agent avec Agno
-- Définition et enregistrement d’actions avec Agno
-- Intégration d’une action simple (exemple : récupération de la météo, recherche web)
-- Exécution et test de l’agent avec plusieurs entrées
+### 1.3 Define Your AI Agent
+- **Interactive Workshop**: Define a simple use case  
+  - Agent’s objective  
+  - Expected inputs and outputs  
+  - Required actions/tools  
+- Examples: support chatbot, text analyzer, web searcher  
 
 ---
 
-## 3eme heure – Amélioration, Scalabilité et Déploiement
+## Second Hour – Practical Agent Development
 
-### 3.1 Optimisation et Cas d’Utilisation Avancés
-- Agents multi-outils
-- RAG (Retrieval Augmented Generation)
-- Discussion sur les limitations et meilleures pratiques
+### 2.1 Environment Setup
+- Dependency installation  
+- Managing API keys with environment variables  
+- Running a simple first test with the OpenAI SDK  
 
-### 3.2 Projet Pratique : Création de votre Agent IA
-- Développement d’un agent en binôme ou individuel
-- Exemples de tâches :
-  - Un chatbot assistant
-  - Un analyseur de texte intelligent
-  - Un agent de veille automatique
-- Assistance et debugging en direct
+### 2.2 Interaction with OpenAI in Python
+- Creating a basic conversational agent  
+- Structuring prompts and the role of the system message  
 
-### 3.3 Prochaines Étapes et Ressources
-- Exploration des sujets avancés :
-  - Ajout de mémoire pour la gestion du contexte
-  - Utilisation d’outils plus complexes (connexion à une base de données, génération de texte avancée)
-  - Déploiement dans un environnement cloud
-- Ressources pour approfondir : Documentation OpenAI et Agno, cours en ligne, GitHub de projets
+### 2.3 Adding Tools to Your Agent with Agno
+- Defining and registering actions in Agno  
+- Integrating a simple action (e.g., weather lookup, web search)  
+- Running and testing the agent with multiple inputs  
+Sure! Here's the English translation of your French markdown while preserving the formatting:
 
-### Citations et sources utilisés pour le workshop
+---
+
+## 3rd Hour – Improvement, Scalability, and Deployment
+
+### 3.1 Optimization and Advanced Use Cases
+- Multi-tool agents  
+- RAG (Retrieval Augmented Generation)  
+- Discussion on limitations and best practices
+
+### 3.2 Hands-On Project: Create Your AI Agent
+- Develop an agent in pairs or individually  
+- Example tasks:
+  - A chatbot assistant  
+  - An intelligent text analyzer  
+  - An automatic monitoring agent  
+- Live support and debugging
+
+### 3.3 Next Steps and Resources
+- Explore advanced topics:
+  - Adding memory for context management  
+  - Using more complex tools (database connection, advanced text generation)  
+  - Deployment in a cloud environment  
+- Resources to go further: OpenAI and Agno documentation, online courses, project GitHub
+
+### Citations and Sources Used for the Workshop
 #### AI Tools:
-- perplexity.ai
-- NotebookLM
-- Claude.ai
-- OpenAI
-#### Ressources
-[1] https://www.data-bird.co/blog/llm-definition
+- perplexity.ai  
+- NotebookLM  
+- Claude.ai  
+- OpenAI  
 
-[2] https://fr.wikipedia.org/wiki/Mod%C3%A8le_de_fondation
-
-[3] https://www.promptingguide.ai/research/rag
-
-[4] https://bigblue.academy/en/text-embeddings
-
-[5] https://aws.amazon.com/fr/what-is/ai-agents/
-
-[6] https://www.dataleon.ai/blog/quest-ce-quun-large-language-model-llm
-
-[7] https://www.redhat.com/fr/topics/ai/what-are-foundation-models
-
-[8] https://cloud.google.com/use-cases/retrieval-augmented-generation
-
-[9] https://datascientest.com/le-word-embedding
-
-[10] https://www.ibm.com/fr-fr/think/topics/ai-agents
-
-[11] https://www.cloudflare.com/fr-fr/learning/ai/what-is-large-language-model/
-
-[12] https://www.lebigdata.fr/modele-de-fondation-une-notion-fondamentale-en-intelligence-artificielle
-
-[13] https://aws.amazon.com/what-is/retrieval-augmented-generation/
-
-[14] https://infoscience.epfl.ch/record/221430/?v=%5B%27pdf%27%5D
-
-[15] https://fr.wikipedia.org/wiki/Agent_intelligent
-
-[16] https://www.hpe.com/ch/fr/what-is/large-language-model.html
-
-[17] https://aws.amazon.com/fr/what-is/foundation-models/
-
-[18] https://www.redhat.com/fr/topics/ai/what-is-retrieval-augmented-generation
-
-[19] https://www.datacamp.com/fr/blog/what-is-text-embedding-ai
-
-[20] https://botpress.com/fr/blog/what-is-an-ai-agent
-
-[21] https://datascientest.com/prompt-tout-savoir
-
-[22] https://www.ibm.com/fr-fr/think/topics/prompt-engineering
-
-[23] https://www.lebigdata.fr/prompt-definition
-
-[24] https://datascientest.com/prompt-engineer-tout-savoir
-
-[25] https://www.intelligence-artificielle-school.com/ecole/technologies/quest-ce-quun-prompt-en-ia/
-
-[26] https://platform.openai.com/docs/guides/prompt-engineering
-
-[27] https://www.lacreme.ai/post/quest-ce-quun-prompt-definition-intelligence-artificielle
-
-[28] https://en.wikipedia.org/wiki/Prompt_engineering
-
+#### Resources  
+[1] https://www.data-bird.co/blog/llm-definition  
+[2] https://fr.wikipedia.org/wiki/Mod%C3%A8le_de_fondation  
+[3] https://www.promptingguide.ai/research/rag  
+[4] https://bigblue.academy/en/text-embeddings  
+[5] https://aws.amazon.com/fr/what-is/ai-agents/  
+[6] https://www.dataleon.ai/blog/quest-ce-quun-large-language-model-llm  
+[7] https://www.redhat.com/fr/topics/ai/what-are-foundation-models  
+[8] https://cloud.google.com/use-cases/retrieval-augmented-generation  
+[9] https://datascientest.com/le-word-embedding  
+[10] https://www.ibm.com/fr-fr/think/topics/ai-agents  
+[11] https://www.cloudflare.com/fr-fr/learning/ai/what-is-large-language-model/  
+[12] https://www.lebigdata.fr/modele-de-fondation-une-notion-fondamentale-en-intelligence-artificielle  
+[13] https://aws.amazon.com/what-is/retrieval-augmented-generation/  
+[14] https://infoscience.epfl.ch/record/221430/?v=%5B%27pdf%27%5D  
+[15] https://fr.wikipedia.org/wiki/Agent_intelligent  
+[16] https://www.hpe.com/ch/fr/what-is/large-language-model.html  
+[17] https://aws.amazon.com/fr/what-is/foundation-models/  
+[18] https://www.redhat.com/fr/topics/ai/what-is-retrieval-augmented-generation  
+[19] https://www.datacamp.com/fr/blog/what-is-text-embedding-ai  
+[20] https://botpress.com/fr/blog/what-is-an-ai-agent  
+[21] https://datascientest.com/prompt-tout-savoir  
+[22] https://www.ibm.com/fr-fr/think/topics/prompt-engineering  
+[23] https://www.lebigdata.fr/prompt-definition  
+[24] https://datascientest.com/prompt-engineer-tout-savoir  
+[25] https://www.intelligence-artificielle-school.com/ecole/technologies/quest-ce-quun-prompt-en-ia/  
+[26] https://platform.openai.com/docs/guides/prompt-engineering  
+[27] https://www.lacreme.ai/post/quest-ce-quun-prompt-definition-intelligence-artificielle  
+[28] https://en.wikipedia.org/wiki/Prompt_engineering  
 [29] https://www.orientaction-groupe.com/vocabulaire-ia-prompt/
