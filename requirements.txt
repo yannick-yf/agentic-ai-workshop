@@ -1,4 +1,4 @@
-openai==1.65.3
+openai==1.69.0
 duckduckgo-search==7.5.0
 yfinance==0.2.54
 lancedb==0.20.0
